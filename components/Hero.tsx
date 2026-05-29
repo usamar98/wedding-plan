@@ -3,9 +3,11 @@
 import { Button } from "@/components/ui/Button";
 import { heroCards } from "@/data/siteData";
 import { motion, useMotionValue, useReducedMotion, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
+  const isDesktop = useIsDesktop();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const xOne = useTransform(mouseX, [-0.5, 0.5], [-28, 28]);
@@ -57,12 +59,12 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <div className="relative min-h-[430px] md:min-h-[680px]">
+        <div className="relative flex flex-col items-center gap-[10px] md:block md:min-h-[680px]">
           <motion.div
             style={{ x: reduceMotion ? 0 : xOne, y: reduceMotion ? 0 : yOne }}
-            className="image-frame absolute left-0 top-0 z-[1] h-[265px] w-[86%] md:top-10 md:h-[520px] md:w-[62%]"
+            className="image-frame relative z-[1] h-[220px] w-full max-w-[360px] md:absolute md:left-0 md:top-10 md:h-[520px] md:w-[62%] md:max-w-none"
             initial={{ opacity: 0, y: 38, rotate: -3 }}
-            animate={{ opacity: 1, y: 0, rotate: -4 }}
+            animate={{ opacity: 1, y: 0, rotate: isDesktop ? -4 : 0 }}
             transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
@@ -75,9 +77,9 @@ export function Hero() {
 
           <motion.div
             style={{ x: reduceMotion ? 0 : xTwo, y: reduceMotion ? 0 : yTwo }}
-            className="image-frame absolute right-0 top-[76px] z-[2] h-[230px] w-[74%] md:top-0 md:h-[360px] md:w-[46%]"
+            className="image-frame relative z-[2] h-[220px] w-full max-w-[360px] md:absolute md:right-0 md:top-0 md:h-[360px] md:w-[46%] md:max-w-none"
             initial={{ opacity: 0, y: 32, rotate: 4 }}
-            animate={{ opacity: 1, y: 0, rotate: 3 }}
+            animate={{ opacity: 1, y: 0, rotate: isDesktop ? 3 : 0 }}
             transition={{ duration: 0.9, delay: 0.72, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
@@ -89,9 +91,9 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="image-frame absolute left-[4%] top-[202px] z-[3] h-[220px] w-[82%] md:bottom-10 md:left-auto md:right-[10%] md:top-auto md:h-[330px] md:w-[54%]"
+            className="image-frame relative z-[3] h-[220px] w-full max-w-[360px] md:absolute md:bottom-10 md:left-auto md:right-[10%] md:h-[330px] md:w-[54%] md:max-w-none"
             initial={{ opacity: 0, y: 36, rotate: 2 }}
-            animate={{ opacity: 1, y: 0, rotate: -1 }}
+            animate={{ opacity: 1, y: 0, rotate: isDesktop ? -1 : 0 }}
             transition={{ duration: 0.9, delay: 0.88, ease: [0.16, 1, 0.3, 1] }}
           >
             <img
@@ -105,6 +107,22 @@ export function Hero() {
       </div>
     </section>
   );
+}
+
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(query.matches);
+
+    update();
+    query.addEventListener("change", update);
+
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  return isDesktop;
 }
 
 function HeroLabel({ title, eyebrow }: { title: string; eyebrow: string }) {
