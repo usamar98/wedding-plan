@@ -29,7 +29,7 @@ export function Hero() {
         <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-obsidian to-transparent" />
       </div>
 
-      <div className="section-shell grid min-h-[calc(100dvh-6rem)] items-center gap-14 py-16 lg:grid-cols-[0.95fr_1.05fr]">
+      <div className="section-shell grid min-h-[calc(100dvh-6rem)] items-center gap-6 py-12 md:gap-14 md:py-16 lg:grid-cols-[0.95fr_1.05fr]">
         <motion.div
           initial={{ opacity: 0, y: 34 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,10 +57,10 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <div className="relative min-h-[500px] md:min-h-[680px]">
+        <div className="relative min-h-[430px] md:min-h-[680px]">
           <motion.div
             style={{ x: reduceMotion ? 0 : xOne, y: reduceMotion ? 0 : yOne }}
-            className="image-frame absolute left-0 top-0 z-[1] h-[285px] w-[84%] md:top-10 md:h-[520px] md:w-[62%]"
+            className="image-frame absolute left-0 top-0 z-[1] h-[265px] w-[86%] md:top-10 md:h-[520px] md:w-[62%]"
             initial={{ opacity: 0, y: 38, rotate: -3 }}
             animate={{ opacity: 1, y: 0, rotate: -4 }}
             transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
@@ -75,7 +75,7 @@ export function Hero() {
 
           <motion.div
             style={{ x: reduceMotion ? 0 : xTwo, y: reduceMotion ? 0 : yTwo }}
-            className="image-frame absolute right-0 top-[108px] z-[2] h-[235px] w-[72%] md:top-0 md:h-[360px] md:w-[46%]"
+            className="image-frame absolute right-0 top-[76px] z-[2] h-[230px] w-[74%] md:top-0 md:h-[360px] md:w-[46%]"
             initial={{ opacity: 0, y: 32, rotate: 4 }}
             animate={{ opacity: 1, y: 0, rotate: 3 }}
             transition={{ duration: 0.9, delay: 0.72, ease: [0.16, 1, 0.3, 1] }}
@@ -89,7 +89,7 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="image-frame absolute left-[5%] top-[262px] z-[3] h-[225px] w-[80%] md:bottom-10 md:left-auto md:right-[10%] md:top-auto md:h-[330px] md:w-[54%]"
+            className="image-frame absolute left-[4%] top-[202px] z-[3] h-[220px] w-[82%] md:bottom-10 md:left-auto md:right-[10%] md:top-auto md:h-[330px] md:w-[54%]"
             initial={{ opacity: 0, y: 36, rotate: 2 }}
             animate={{ opacity: 1, y: 0, rotate: -1 }}
             transition={{ duration: 0.9, delay: 0.88, ease: [0.16, 1, 0.3, 1] }}
