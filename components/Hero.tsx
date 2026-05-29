@@ -57,10 +57,10 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <div className="relative min-h-[650px] md:min-h-[680px]">
+        <div className="relative min-h-[560px] md:min-h-[680px]">
           <motion.div
             style={{ x: reduceMotion ? 0 : xOne, y: reduceMotion ? 0 : yOne }}
-            className="image-frame absolute left-0 top-0 z-[1] h-[320px] w-[78%] md:top-10 md:h-[520px] md:w-[62%]"
+            className="image-frame absolute left-0 top-0 z-[1] h-[300px] w-[82%] md:top-10 md:h-[520px] md:w-[62%]"
             initial={{ opacity: 0, y: 38, rotate: -3 }}
             animate={{ opacity: 1, y: 0, rotate: -4 }}
             transition={{ duration: 0.9, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
@@ -75,7 +75,7 @@ export function Hero() {
 
           <motion.div
             style={{ x: reduceMotion ? 0 : xTwo, y: reduceMotion ? 0 : yTwo }}
-            className="image-frame absolute right-0 top-[205px] z-[2] h-[255px] w-[68%] md:top-0 md:h-[360px] md:w-[46%]"
+            className="image-frame absolute right-0 top-[145px] z-[2] h-[245px] w-[70%] md:top-0 md:h-[360px] md:w-[46%]"
             initial={{ opacity: 0, y: 32, rotate: 4 }}
             animate={{ opacity: 1, y: 0, rotate: 3 }}
             transition={{ duration: 0.9, delay: 0.72, ease: [0.16, 1, 0.3, 1] }}
@@ -89,7 +89,7 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="image-frame absolute bottom-0 left-[7%] z-[3] h-[250px] w-[76%] md:bottom-10 md:left-auto md:right-[10%] md:h-[330px] md:w-[54%]"
+            className="image-frame absolute bottom-0 left-[4%] z-[3] h-[235px] w-[78%] md:bottom-10 md:left-auto md:right-[10%] md:h-[330px] md:w-[54%]"
             initial={{ opacity: 0, y: 36, rotate: 2 }}
             animate={{ opacity: 1, y: 0, rotate: -1 }}
             transition={{ duration: 0.9, delay: 0.88, ease: [0.16, 1, 0.3, 1] }}
